@@ -3,7 +3,9 @@ type SmallFilmCardProps = {
 };
 
 function SmallFilmCard({ filmName }: SmallFilmCardProps): JSX.Element {
-  const imageName: string = 'img/' + filmName.toLowerCase().replace(/\s+/g, '-').replace(/:/g, '') + '.jpg';
+  const imagePath = 'img/';
+  const imageExtension= '.jpg';
+  const imageName: string =  imagePath + filmName.toLowerCase().replace(/\s+/g, '-').replace(/:/g, '') + imageExtension;
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
