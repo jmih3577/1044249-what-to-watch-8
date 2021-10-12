@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-
-const promoFilmInfo = { promoFilmName: 'The Grand Budapest Hotel', promoFilmDate: 2014, promoFilmGenre: 'Drama' };
+import { PromoFilmInfo } from './const/const';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App {...promoFilmInfo}/>
+    <App {...PromoFilmInfo}/>
   </React.StrictMode>,
   document.getElementById('root'));

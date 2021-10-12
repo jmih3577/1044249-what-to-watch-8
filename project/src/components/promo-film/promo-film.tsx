@@ -1,5 +1,6 @@
-type PromoFilmProps = { promoFilmName: string; promoFilmDate: number; promoFilmGenre: string; };
-function PromoFilm({ promoFilmName, promoFilmDate, promoFilmGenre }: PromoFilmProps): JSX.Element {
+import { AppProps } from '../../types/types';
+
+function PromoFilm({ promoFilmName, promoFilmDate, promoFilmGenre }: AppProps): JSX.Element {
   return (
 
     <section className="film-card">

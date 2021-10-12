@@ -2,15 +2,14 @@ import SmallFilmCard from '../small-film-card/small-film-card';
 import PromoFilm from '../promo-film/promo-film';
 import VisuallyHidden from '../static-blocks/visually-hidden';
 import Footer from '../static-blocks/footer';
-type MainProps = { promoFilmName: string; promoFilmDate: number; promoFilmGenre: string; };
+import { AppProps } from '../../types/types';
 
-
-function Main({promoFilmName,promoFilmDate,promoFilmGenre}:MainProps): JSX.Element {
+function Main(promoFilmInfo:AppProps): JSX.Element {
   //let filmNameList: string[] = ['Fantastic Beasts: The Crimes of Grindelwald', 'Bohemian Rhapsody', 'Macbeth', 'Aviator', 'We need to talk about Kevin', 'What We Do in the Shadows', 'Revenant', 'Johnny English', 'Shutter Island', 'Pulp Fiction', 'No Country for Old Men', 'Snatch', 'Moonrise Kingdom', 'Seven Years in Tibet', 'Midnight Special', 'War of the Worlds', 'Dardjeeling Limited', 'Orlando', 'Mindhunter', 'Midnight Special'];
   return (
     <>
       <VisuallyHidden/>
-      <PromoFilm promoFilmName={promoFilmName} promoFilmDate={promoFilmDate} promoFilmGenre={promoFilmGenre} />
+      <PromoFilm {...promoFilmInfo} />
 
       <div className="page-content">
         <section className="catalog">
