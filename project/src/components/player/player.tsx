@@ -1,6 +1,11 @@
 import VisuallyHidden from '../static-blocks/visually-hidden';
+import {useParams} from 'react-router-dom';
+import {films} from '../../mocks/films';
 
 function Player():JSX.Element {
+  const {id}:any = useParams();
+  const curId = Number(id);
+  const curFilm = films[curId];
   return (
     <>
       <VisuallyHidden/>
@@ -25,7 +30,7 @@ function Player():JSX.Element {
               </svg>
               <span>Play</span>
             </button>
-            <div className="player__name">Transpotting</div>
+            <div className="player__name">{curFilm.name}</div>
 
             <button type="button" className="player__full-screen">
               <svg viewBox="0 0 27 27" width="27" height="27">

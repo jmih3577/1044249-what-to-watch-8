@@ -1,4 +1,3 @@
-import SmallFilmCard from '../small-film-card/small-film-card';
 import Footer from '../static-blocks/footer';
 import VisuallyHidden from '../static-blocks/visually-hidden';
 
@@ -120,10 +119,10 @@ function MoviePageDetails():JSX.Element {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-            <SmallFilmCard filmName={'Fantastic Beasts: The Crimes of Grindelwald'} />
-            <SmallFilmCard filmName={'Bohemian Rhapsody'} />
-            <SmallFilmCard filmName={'Macbeth'} />
-            <SmallFilmCard filmName={'Aviator'} />
+            {/*<SmallFilmCard filmName={'Fantastic Beasts: The Crimes of Grindelwald'} />*/}
+            {/*<SmallFilmCard filmName={'Bohemian Rhapsody'} />*/}
+            {/*<SmallFilmCard filmName={'Macbeth'} />*/}
+            {/*<SmallFilmCard filmName={'Aviator'} />*/}
           </div>
         </section>
 

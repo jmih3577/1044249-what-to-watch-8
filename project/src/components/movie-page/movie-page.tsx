@@ -1,8 +1,14 @@
-import SmallFilmCard from '../small-film-card/small-film-card';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import Footer from '../static-blocks/footer';
 import VisuallyHidden from '../static-blocks/visually-hidden';
+import { films } from '../../mocks/films';
+import ListOfFilms from '../list-of-films/listOfFilms';
 
 function MoviePage(): JSX.Element {
+  const {id}:any = useParams();
+  const curId = Number(id);
+  const curFilm = films[curId-1];
+  const history = useHistory();
   return (
     <>
       <VisuallyHidden/>
@@ -15,13 +21,14 @@ function MoviePage(): JSX.Element {
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
+            <Link className="logo" onClick = {()=>history.push('/')} to={'/'}>
+              <div className="logo">
+                <a href="main.html" className="logo__link">
+                  <span className="logo__letter logo__letter--1">W</span>
+                  <span className="logo__letter logo__letter--2">T</span>
+                  <span className="logo__letter logo__letter--3">W</span>
+                </a>
+              </div></Link>
 
             <ul className="user-block">
               <li className="user-block__item">
@@ -37,7 +44,7 @@ function MoviePage(): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{curFilm.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">Drama</span>
                 <span className="film-card__year">2014</span>
@@ -65,7 +72,7 @@ function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={curFilm.poster} alt={curFilm.name} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
@@ -78,7 +85,7 @@ function MoviePage(): JSX.Element {
                     <a href="#" className="film-nav__link">Details</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
+                    <Link className="film-nav__link" onClick = {()=>history.push(`/films/${curFilm.id}/review`)} to={`/films/${curFilm.id}/review`}>Review</Link>
                   </li>
                 </ul>
               </nav>
@@ -109,14 +116,7 @@ function MoviePage(): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <div className="catalog__films-list">
-
-            <SmallFilmCard filmName={'Fantastic Beasts: The Crimes of Grindelwald'} />
-            <SmallFilmCard filmName={'Bohemian Rhapsody'} />
-            <SmallFilmCard filmName={'Macbeth'} />
-            <SmallFilmCard filmName={'Aviator'} />
-
-          </div>
+          <ListOfFilms films={films}/>
         </section>
 
         <Footer/>

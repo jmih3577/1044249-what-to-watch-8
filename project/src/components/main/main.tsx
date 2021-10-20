@@ -1,15 +1,16 @@
-import SmallFilmCard from '../small-film-card/small-film-card';
 import PromoFilm from '../promo-film/promo-film';
 import VisuallyHidden from '../static-blocks/visually-hidden';
 import Footer from '../static-blocks/footer';
-import { AppProps } from '../../types/types';
+import {AppScreenProps} from '../../types/types';
+import ListOfFilms from '../list-of-films/listOfFilms';
 
-function Main(promoFilmInfo:AppProps): JSX.Element {
+
+function Main({promoFilm, films}: AppScreenProps): JSX.Element {
   //let filmNameList: string[] = ['Fantastic Beasts: The Crimes of Grindelwald', 'Bohemian Rhapsody', 'Macbeth', 'Aviator', 'We need to talk about Kevin', 'What We Do in the Shadows', 'Revenant', 'Johnny English', 'Shutter Island', 'Pulp Fiction', 'No Country for Old Men', 'Snatch', 'Moonrise Kingdom', 'Seven Years in Tibet', 'Midnight Special', 'War of the Worlds', 'Dardjeeling Limited', 'Orlando', 'Mindhunter', 'Midnight Special'];
   return (
     <>
       <VisuallyHidden/>
-      <PromoFilm {...promoFilmInfo} />
+      <PromoFilm {...promoFilm} />
 
       <div className="page-content">
         <section className="catalog">
@@ -47,29 +48,29 @@ function Main(promoFilmInfo:AppProps): JSX.Element {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-
-          <div className="catalog__films-list">
-            <SmallFilmCard filmName={'Fantastic Beasts: The Crimes of Grindelwald'} />
-            <SmallFilmCard filmName={'Bohemian Rhapsody'} />
-            <SmallFilmCard filmName={'Macbeth'} />
-            <SmallFilmCard filmName={'Aviator'} />
-            <SmallFilmCard filmName={'We need to talk about Kevin'} />
-            <SmallFilmCard filmName={'What We Do in the Shadows'} />
-            <SmallFilmCard filmName={'Revenant'} />
-            <SmallFilmCard filmName={'Johnny English'} />
-            <SmallFilmCard filmName={'Shutter Island'} />
-            <SmallFilmCard filmName={'Pulp Fiction'} />
-            <SmallFilmCard filmName={'No Country for Old Men'} />
-            <SmallFilmCard filmName={'Snatch'} />
-            <SmallFilmCard filmName={'Moonrise Kingdom'} />
-            <SmallFilmCard filmName={'Seven Years in Tibet'} />
-            <SmallFilmCard filmName={'Midnight Special'} />
-            <SmallFilmCard filmName={'War of the Worlds'} />
-            <SmallFilmCard filmName={'Dardjeeling Limited'} />
-            <SmallFilmCard filmName={'Orlando'} />
-            <SmallFilmCard filmName={'Mindhunter'} />
-            <SmallFilmCard filmName={'Midnight Special'} />
-          </div>
+          <ListOfFilms films={films}/>
+          {/*<div className="catalog__films-list">*/}
+          {/*  /!*<SmallFilmCard filmName={films[].name} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Bohemian Rhapsody'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Macbeth'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Aviator'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'We need to talk about Kevin'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'What We Do in the Shadows'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Revenant'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Johnny English'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Shutter Island'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Pulp Fiction'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'No Country for Old Men'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Snatch'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Moonrise Kingdom'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Seven Years in Tibet'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Midnight Special'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'War of the Worlds'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Dardjeeling Limited'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Orlando'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Mindhunter'} />*!/*/}
+          {/*  /!*<SmallFilmCard filmName={'Midnight Special'} />*!/*/}
+          {/*</div>*/}
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

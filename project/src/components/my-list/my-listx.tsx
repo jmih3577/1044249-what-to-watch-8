@@ -1,8 +1,9 @@
-import SmallFilmCard from '../small-film-card/small-film-card';
 import Footer from '../static-blocks/footer';
 import VisuallyHidden from '../static-blocks/visually-hidden';
+import ListOfFilms from '../list-of-films/listOfFilms';
+import {ListOfFilmsType} from '../../types/types';
 
-function MyList():JSX.Element {
+function MyList({films}:ListOfFilmsType): JSX.Element {
   return (
     <>
       <VisuallyHidden/>
@@ -34,17 +35,7 @@ function MyList():JSX.Element {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <div className="catalog__films-list">
-            <SmallFilmCard filmName = {'Fantastic Beasts: The Crimes of Grindelwald'}/>
-            <SmallFilmCard filmName = {'Bohemian Rhapsody'}/>
-            <SmallFilmCard filmName = {'Macbeth'}/>
-            <SmallFilmCard filmName = {'Aviator'}/>
-            <SmallFilmCard filmName = {'We need to talk about Kevin'}/>
-            <SmallFilmCard filmName = {'What We Do in the Shadows'}/>
-            <SmallFilmCard filmName = {'Revenant'}/>
-            <SmallFilmCard filmName = {'Johnny English'}/>
-            <SmallFilmCard filmName = {'Shutter Island'}/>
-          </div>
+          <ListOfFilms films={films}/>
         </section>
 
         <Footer/>
